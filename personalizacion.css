@@ -1,0 +1,17 @@
+/* PERSONALIZACIÓN S9 · paleta RGB azul (30,64,175): texto blanco sobre azul con contraste alto (≈9:1) */
+:root{--kx-primario:rgb(30,64,175);--kx-claro:rgb(239,246,255);--kx-texto:rgb(22,38,56);--kx-error:rgb(153,27,27);--kx-exito:rgb(22,101,52)}
+.kardex{border-top:6px solid var(--kx-primario)}
+.kardex .etiqueta{display:inline-block;background:var(--kx-primario);color:rgb(255,255,255);font-size:18px;font-weight:700;padding:6px 14px;border-radius:999px}
+.kardex h2{color:var(--kx-primario)}
+.kardex button{background:var(--kx-primario)}
+.kardex button:focus-visible,.kardex input:focus-visible{outline:3px solid rgb(236,170,34)}
+.kardex table{width:100%;border-collapse:collapse;margin:12px 0;font-size:16px}
+.kardex caption{text-align:left;font-weight:700;color:var(--kx-primario);padding:6px 0}
+.kardex th{background:var(--kx-claro);text-align:left}
+.kardex th,.kardex td{border:1px solid rgb(203,213,225);padding:8px}
+.kardex tr.elegido td{background:var(--kx-claro);font-weight:700}
+.kx-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+#kx-mensaje{white-space:pre-line;min-height:28px;font-weight:600}
+#kx-mensaje.error{color:var(--kx-error);background:rgb(254,242,242);border:2px solid var(--kx-error);border-radius:8px;padding:14px}
+#kx-mensaje.exito{color:var(--kx-exito);background:rgb(240,253,244);border-left:5px solid var(--kx-exito);padding:14px}
+@media(max-width:540px){.kx-grid{grid-template-columns:1fr}.kardex table{font-size:14px}}

@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Planificador de materiales · Edwin Huertas</title>
+<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="personalizacion.css"></head>
+<body><main><small>ET505 · Semana 7 · Trabajo individual</small><h1>Planificador de materiales · Edwin Huertas</h1><p>Organice el pedido de materiales para un taller de lectura con 20 estudiantes. Presupuesto del taller: S/ 80.00 (S/ 4.00 por estudiante). Simulación sin compras ni envíos.</p>
+<section><h2>Cómo usar el planificador</h2><ol><li>Escriba el material (por ejemplo: libros de cuentos).</li><li>Indique cantidad (1 a 30) y precio por unidad (S/ 0.01 a S/ 50).</li><li>Pulse Comprobar pedido o Confirmar simulación.</li></ol></section>
+<section><h2>Preparar un pedido</h2><form id="formulario" novalidate><label for="material">Material educativo</label><input id="material" maxlength="60" placeholder="Ejemplo: libros de cuentos" autocomplete="off"><div class="grid"><div><label for="cantidad">Cantidad de unidades</label><input id="cantidad" type="number" min="1" max="30" step="1"></div><div><label for="precio">Precio por unidad en soles</label><input id="precio" type="number" min="0.01" max="50" step="0.01"></div></div><button id="comprobar" type="button">Comprobar pedido</button><button type="submit">Confirmar simulación</button><p id="mensaje" role="status" aria-live="polite" aria-atomic="true" tabindex="-1"></p></form><h2>Último pedido válido</h2><p id="vacio">Todavía no ha confirmado un pedido.</p><div id="ficha" hidden></div><button id="limpiar" type="button">Limpiar</button></section><section id="kardex" class="kardex">
+<span class="etiqueta">Kardex · ET505 S9 · Edwin Huertas</span>
+<h2>Kardex de materiales</h2>
+<p>Control de existencias <strong>en unidades</strong>. No es el presupuesto en soles del planificador. Existencia = entradas − salidas. Use datos ficticios.</p>
+<form id="kx-buscador" novalidate><label for="kx-buscar">Buscar por nombre o código</label><input id="kx-buscar" autocomplete="off" placeholder="Ejemplo: cuentos o MAT-002"></form>
+<table><caption>Materiales</caption><thead><tr><th>Código</th><th>Material</th><th>Estado</th><th>Existencia (unid.)</th><th>Acción</th></tr></thead><tbody id="kx-lista"></tbody></table>
+<p id="kx-sin-resultados" hidden>Sin coincidencias. No hay material seleccionado.</p>
+<p>Material seleccionado: <strong id="kx-seleccion">ninguno</strong></p>
+<div class="kx-grid"><div><label for="kx-cantidad">Cantidad (entero positivo)</label><input id="kx-cantidad" inputmode="numeric" autocomplete="off"><button id="kx-entrada" type="button">Registrar entrada</button><button id="kx-salida" type="button">Registrar salida</button></div>
+<div><label for="kx-nombre">Nombre (cambiar o agregar)</label><input id="kx-nombre" maxlength="60" autocomplete="off"><button id="kx-renombrar" type="button">Cambiar nombre</button><button id="kx-agregar" type="button">Agregar material</button></div></div>
+<div><button id="kx-estado" type="button">Inactivar / reactivar</button><button id="kx-eliminar" type="button">Eliminar (sin movimientos)</button><button id="kx-csv" type="button">Exportar movimientos (CSV)</button></div>
+<p id="kx-mensaje" role="status" aria-live="polite" aria-atomic="true" tabindex="-1"></p>
+<table><caption>Historial del material seleccionado</caption><thead><tr><th>Fecha</th><th>Tipo</th><th>Cantidad</th></tr></thead><tbody id="kx-historial"></tbody></table>
+<small>Los datos se guardan sólo en este navegador y origen (localStorage); no hay base compartida. El CSV es una copia, no una sincronización con Excel.</small>
+</section><small>Use datos ficticios. El pedido del planificador se pierde al recargar; el kardex se guarda sólo en este navegador.</small></main>
+<script src="app.js"></script><script src="kardex.js"></script></body></html>
